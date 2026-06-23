@@ -1,8 +1,3 @@
-/* ============================================================================
-   RENDER-HOME.JS — این فایل را لازم نیست ویرایش کنی.
-   فقط محتوای content.js و projects.js را می‌خواند و در index.html نمایش می‌دهد.
-   ============================================================================ */
-
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str == null ? '' : String(str);
@@ -145,7 +140,6 @@ function renderHome(c, projects) {
   ).join('');
 }
 
-/* ── TESTIMONIALS CAROUSEL ────────────────────────────────────────────── */
 function setupCarousel(itemCount) {
   if (itemCount <= 1) {
     const controls = document.getElementById('carousel-controls');
@@ -177,12 +171,6 @@ function setupCarousel(itemCount) {
   go(0);
 }
 
-/* ── ANIMATIONS ───────────────────────────────────────────────────────
-   از IntersectionObserver برای تشخیص ورود به دید استفاده می‌کنیم (نه
-   ScrollTrigger) چون موقعیتش را یک‌بار محاسبه نمی‌کند و وابسته به اینکه
-   محتوا کِی کامل لود شده باشد نیست — یعنی هیچ‌وقت یک عنصر برای همیشه
-   مخفی نمی‌ماند. علاوه‌بر این یک «safety net» قطعی هم هست: مهم نیست چه
-   اتفاقی برای GSAP بیفتد، بعد از چند ثانیه همه‌چیز قطعاً نمایش داده می‌شود. */
 function setupAnimations() {
   const revealEls = Array.from(document.querySelectorAll('.anim-item, .anim-fade'));
   const heroEls = Array.from(document.querySelectorAll('.hero-eyebrow, #hero h1, .hero-sub, .hero-actions a, .hero-stats'));
@@ -192,7 +180,6 @@ function setupAnimations() {
     allEls.forEach(el => { el.style.opacity = ''; el.style.transform = ''; });
   }
 
-  // safety net — مهم نیست GSAP/CDN چه کند، حداکثر بعد از ۴ ثانیه همه‌چیز دیده می‌شود
   const safetyTimer = setTimeout(forceShow, 4000);
 
   function start(retriesLeft) {
@@ -204,11 +191,9 @@ function setupAnimations() {
     }
 
     try {
-      // Hero entrance — فوری، بدون نیاز به اسکرول
       gsap.set(heroEls, { opacity: 0, y: 16 });
       gsap.to(heroEls, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out', delay: 0.1 });
 
-      // Scroll reveal — هر عنصر فقط وقتی واقعا وارد دید می‌شود انیمیت می‌شود
       if (revealEls.length) {
         gsap.set(revealEls, { opacity: 0, y: 24 });
         const io = new IntersectionObserver((entries) => {
@@ -222,7 +207,6 @@ function setupAnimations() {
         revealEls.forEach(el => io.observe(el));
       }
 
-      // شمارش انیمیت‌شده‌ی آمار هیرو
       const countEls = document.querySelectorAll('.count-up');
       if (countEls.length) {
         const countIO = new IntersectionObserver((entries) => {
@@ -246,15 +230,9 @@ function setupAnimations() {
     }
   }
 
-  start(10); // تا حدود ۳ ثانیه صبر می‌کند تا GSAP (یا fallback آن) لود شود
+  start(10); 
 }
 
-/* ── HASH SCROLL FIX ──────────────────────────────────────────────────
-   اگر از یک صفحه‌ی دیگر با لینکی مثل index.html#contact به این صفحه
-   بیایی، مرورگر سعی می‌کند همان لحظه‌ی اول به #contact اسکرول کند —
-   اما در آن لحظه محتوا هنوز خالی است (ارتفاع صفحه کوتاه است)، پس اسکرول
-   اشتباه می‌افتد. بعد از اینکه محتوا کامل پر شد، دوباره با موقعیت درست
-   اسکرول می‌کنیم. */
 function fixHashScroll() {
   if (!window.location.hash) return;
   const target = document.querySelector(window.location.hash);
@@ -271,10 +249,6 @@ function hideLoader() {
   setTimeout(() => loader.remove(), 450);
 }
 
-/* ── ICON INIT ─────────────────────────────────────────────────────────
-   آیکون‌ها دیگه SVG داخلی هستن (js/icons.js) و همزمان با باقی محتوا
-   رندر می‌شن — نیازی به صبر کردن برای یک CDN خارجی نیست. */
-
 document.addEventListener('DOMContentLoaded', () => {
   renderHome(SITE_CONTENT, PROJECTS);
 
@@ -284,6 +258,4 @@ document.addEventListener('DOMContentLoaded', () => {
   hideLoader();
 });
 
-// در صورتی که تصاویر/فونت‌ها دیرتر لود شوند و ارتفاع صفحه را تغییر دهند،
-// یک‌بار دیگر هم موقعیت اسکرول را تصحیح می‌کنیم.
 window.addEventListener('load', fixHashScroll);
