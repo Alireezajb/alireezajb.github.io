@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10241F"/>
+      <stop offset="100%" stop-color="#0C0C0E"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.10"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad2)"/>
+
+  <!-- background grid dots -->
+  <g fill="#1F2E2A">
+    <circle cx="1480" cy="120" r="2.5"/><circle cx="1380" cy="120" r="2.5"/><circle cx="1280" cy="120" r="2.5"/>
+    <circle cx="1480" cy="220" r="2.5"/><circle cx="1380" cy="220" r="2.5"/>
+    <circle cx="120" cy="780" r="2.5"/><circle cx="220" cy="780" r="2.5"/><circle cx="320" cy="780" r="2.5"/>
+  </g>
+
+  <!-- product card grid -->
+  <g>
+    <rect x="180" y="220" width="280" height="200" rx="14" fill="url(#cardGrad)" stroke="#10B981" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="220" y="260" width="120" height="80" rx="8" fill="#10B98133"/>
+    <rect x="220" y="354" width="160" height="10" rx="5" fill="#10B98155"/>
+    <rect x="220" y="374" width="90" height="10" rx="5" fill="#3A3A4280"/>
+
+    <rect x="500" y="160" width="280" height="200" rx="14" fill="url(#cardGrad)" stroke="#06B6D4" stroke-opacity="0.35" stroke-width="1.5"/>
+    <rect x="540" y="200" width="120" height="80" rx="8" fill="#06B6D433"/>
+    <rect x="540" y="294" width="160" height="10" rx="5" fill="#06B6D455"/>
+    <rect x="540" y="314" width="90" height="10" rx="5" fill="#3A3A4280"/>
+
+    <rect x="180" y="460" width="280" height="200" rx="14" fill="url(#cardGrad)" stroke="#10B981" stroke-opacity="0.25" stroke-width="1.5"/>
+    <rect x="220" y="500" width="120" height="80" rx="8" fill="#10B98122"/>
+    <rect x="220" y="594" width="160" height="10" rx="5" fill="#10B98144"/>
+    <rect x="220" y="614" width="90" height="10" rx="5" fill="#3A3A4280"/>
+  </g>
+
+  <!-- floating order chip -->
+  <g transform="translate(900,520)">
+    <rect width="260" height="64" rx="12" fill="#14141699" stroke="#1F2E2A" stroke-width="1.5"/>
+    <circle cx="34" cy="32" r="14" fill="#10B98122" stroke="#10B981" stroke-width="1.5"/>
+    <path d="M27 32 l5 5 l10 -10" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="62" y="27" fill="#A8A8B8" font-family="Inter, sans-serif" font-size="12.5">Order confirmed</text>
+    <text x="62" y="46" fill="#EEEEF2" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">#A-10492</text>
+  </g>
+
+  <!-- cart icon, large, top right -->
+  <g transform="translate(1180,180)" opacity="0.9">
+    <circle cx="90" cy="90" r="90" fill="#06B6D414"/>
+    <g transform="translate(48,52)" stroke="#06B6D4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 4 H10 L18 48 H62 L72 16 H16"/>
+      <circle cx="26" cy="64" r="5" fill="#06B6D4" stroke="none"/>
+      <circle cx="58" cy="64" r="5" fill="#06B6D4" stroke="none"/>
+    </g>
+  </g>
+</svg>

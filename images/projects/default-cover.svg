@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1B2E"/>
+      <stop offset="100%" stop-color="#0C0C0E"/>
+    </linearGradient>
+    <linearGradient id="brktGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5B6EF5"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bgGrad4)"/>
+
+  <g fill="#2A2B3D">
+    <circle cx="120" cy="120" r="2.5"/><circle cx="220" cy="120" r="2.5"/><circle cx="320" cy="120" r="2.5"/>
+    <circle cx="1480" cy="780" r="2.5"/><circle cx="1380" cy="780" r="2.5"/>
+  </g>
+
+  <!-- layered abstract panels -->
+  <rect x="480" y="220" width="380" height="260" rx="18" fill="#16161A" stroke="#2A2B3D" stroke-width="1.5" transform="rotate(-4 670 350)"/>
+  <rect x="560" y="270" width="380" height="260" rx="18" fill="#14141699" stroke="#3A3A42" stroke-width="1.5" transform="rotate(3 750 400)"/>
+
+  <!-- code bracket signature -->
+  <g transform="translate(700,330)" stroke="url(#brktGrad)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 0 C20 0 20 40 20 75 C20 95 0 100 0 100 C0 100 20 105 20 125 C20 160 20 200 70 200" transform="translate(0,40) scale(0.9)"/>
+    <path d="M130 0 C180 0 180 40 180 75 C180 95 200 100 200 100 C200 100 180 105 180 125 C180 160 180 200 130 200" transform="translate(0,40) scale(0.9)"/>
+  </g>
+
+  <circle cx="1280" cy="180" r="5" fill="#5B6EF5"/>
+  <circle cx="1340" cy="220" r="3.5" fill="#C084FC"/>
+  <circle cx="260" cy="650" r="5" fill="#C084FC"/>
+</svg>
