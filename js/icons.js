@@ -1,4 +1,12 @@
 const ICONS = {
+  'copy': {
+    type: 'stroke',
+    body: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>'
+  },
+  'check': {
+    type: 'stroke',
+    body: '<polyline points="5 12 10 17 19 7"/>'
+  },
   'arrow-right': {
     type: 'stroke',
     body: '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>'

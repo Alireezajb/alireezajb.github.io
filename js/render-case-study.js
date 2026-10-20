@@ -73,7 +73,6 @@ function renderCaseStudy(project, allProjects) {
   // prev / next navigation (circular)
   const idx = allProjects.findIndex(p => p.slug === project.slug);
   const nextProject = allProjects[(idx + 1) % allProjects.length];
-  const prevAvailable = allProjects.length > 2; // only show a "previous" card if there's a meaningfully distinct one
   let navHtml = `
     <a href="case-study.html?project=${encodeURIComponent(nextProject.slug)}" class="cs-nav-card is-next">
       <div class="cs-nav-card-label">Next case study ${svgIcon('arrow-right', { style: 'width:14px;height:14px;' })}</div>
@@ -87,6 +86,7 @@ function renderCaseStudy(project, allProjects) {
 }
 
 function setupAnimations() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const heroEls = Array.from(document.querySelectorAll('.cs-back, .cs-tags span, .cs-title, .cs-summary, .cs-meta-bar, .cs-cover'));
   const revealEls = Array.from(document.querySelectorAll('.cs-block, .cs-nav-projects'));
   const allEls = heroEls.concat(revealEls);
@@ -131,7 +131,7 @@ function setupAnimations() {
 
 function fixHashScroll() {
   if (!window.location.hash) return;
-  const target = document.querySelector(window.location.hash);
+  const target = document.getElementById(window.location.hash.slice(1));
   if (!target) return;
   requestAnimationFrame(() => {
     requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));

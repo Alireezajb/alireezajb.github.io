@@ -14,9 +14,9 @@ const SITE_CONTENT = {
   // ── HERO ─────────────────────────────────────────────────────────────────
   hero: {
     eyebrow: "Full-Stack Developer · AI Automation ",
-    titleLine1: "I build web apps",
-    titleLine2: "from interface to backend",  
-    subtitle: "Five years building production Angular front-ends — real-time dashboards, fleet trackers, multi-role clinical platforms — and now working across the full stack with Node.js, Express, and NestJS, plus AI automation to cut out the repetitive work.",
+    titleLine1: "Web apps, built",
+    titleLine2: "end to end.",
+    subtitle: "I turn complex workflows into clear, reliable web apps. Angular interfaces, Node.js backends, and practical AI automation — connected from the first screen to the data behind it.",
     primaryButton:   { label: "See the work →", href: "#projects" },
     secondaryButton: { label: "About me",        href: "#about"    },
     badge: { number: "5", suffix: "+", label: "Years\nprofessional" },
@@ -37,10 +37,10 @@ const SITE_CONTENT = {
   // ── ABOUT ME ──────────────────────────────────────────────────────────────
   about: {
     label: "About me",
-    title: "Strong on the front end, growing across the full stack — and automating the boring parts with AI",
+    title: "Front-end depth. Full-stack thinking.",
     paragraphs: [
-      "I've spent the last four years building Angular front-ends for projects that genuinely had to work — a GPS fleet tracker, a multi-role clinical dashboard, a dashcam monitoring platform, a meeting tool with live video built in. Different domains, but a lot of the same hard questions about state, real-time data, and what happens when a few hundred things update at once. That front-end depth is still the core of what I do.",
-      "These days I'm deliberately working across the whole stack. On the backend I build APIs and services with Node.js, Express, and NestJS, so I can take a product from interface to data layer instead of stopping at the edge of the frontend. I also work with AI automation — wiring up LLMs and automation tools to remove repetitive, manual steps from real workflows. Earlier on I built an irrigation/sensor system at Shahid Chamran University (my first real taste of WebSockets and live data) and spent two semesters as a teaching assistant helping students with React and Next.js. I hold a CS degree and a couple of Harvard CS50 certificates."
+      "I'm Alireza, a developer with five years of experience building Angular applications for healthcare, fleet tracking, and real-time collaboration.",
+      "I also build APIs with Node.js, Express, and NestJS, and connect AI tools to automate repetitive work. My focus: clear interfaces, reliable systems, and code that's easy to maintain."
     ],
     skills: [
       "Angular",
@@ -48,8 +48,8 @@ const SITE_CONTENT = {
       "RxJS",
       "Express.js",
       "NestJS",
-      "REST API design",
-      "AI Automation (LLMs & workflows)",
+      "REST APIs",
+      "AI automation",
       "WebSockets & SignalR",
       "Responsive UI"
     ],

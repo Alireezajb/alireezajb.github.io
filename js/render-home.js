@@ -29,7 +29,7 @@ function renderHome(c, projects) {
   const allStats = [c.hero.badge, ...c.hero.stats];
   document.getElementById('hero-stats').innerHTML = allStats.map(s => `
     <div class="stat-item">
-      <div class="stat-number"><span class="count-up" data-target="${parseFloat(s.number)}">${/^\d+$/.test(s.number) ? '0' : s.number}</span><span>${s.suffix}</span></div>
+      <div class="stat-number"><span class="count-up" data-target="${parseFloat(s.number)}">${escapeHtml(s.number)}</span><span>${s.suffix}</span></div>
       <div class="stat-label">${escapeHtml(s.label)}</div>
     </div>
   `).join('');
@@ -38,7 +38,7 @@ function renderHome(c, projects) {
   const marqueeItems = c.marquee.map(item =>
     `<span class="marquee-item">${escapeHtml(item)}</span><span class="marquee-dot"></span>`
   ).join('');
-  document.getElementById('marquee-track').innerHTML = marqueeItems + marqueeItems;
+  document.getElementById('marquee-track').innerHTML = `<span class="marquee-group">${marqueeItems}</span><span class="marquee-group" aria-hidden="true">${marqueeItems}</span>`;
 
   // ABOUT
   document.getElementById('about-label').textContent = c.about.label;
@@ -77,27 +77,27 @@ function renderHome(c, projects) {
   projCta.href = c.projectsSection.ctaButton.href;
 
   document.getElementById('projects-grid').innerHTML = projects.map(p => `
-    <div class="project-card ${p.featured ? 'featured' : ''} anim-item">
+    <article class="project-card ${p.featured ? 'featured' : ''} anim-item">
       <div class="project-thumb">
         <img src="${p.cover || 'images/projects/default-cover.svg'}" alt="${escapeHtml(p.thumbLabel)}" loading="lazy" />
       </div>
       <div class="project-body">
         <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${escapeHtml(t)}</span>`).join('')}</div>
-        <h3>${escapeHtml(p.title)}</h3>
+        <h3><a class="project-title-link" href="case-study.html?project=${encodeURIComponent(p.slug)}">${escapeHtml(p.title)}</a></h3>
         <p>${escapeHtml(p.description)}</p>
         <div class="project-footer">
           <span style="font-size:0.8rem; color:var(--text-low);">${escapeHtml(p.meta)}</span>
-          <a href="case-study.html?project=${encodeURIComponent(p.slug)}" class="project-link">View case study ${svgIcon('arrow-right', { style: 'width:14px;height:14px;' })}</a>
+          <span class="project-link" aria-hidden="true">View case study ${svgIcon('arrow-right', { style: 'width:14px;height:14px;' })}</span>
         </div>
       </div>
-    </div>
+    </article>
   `).join('');
 
   // TESTIMONIALS
   document.getElementById('testimonials-label').textContent = c.testimonials.label;
   document.getElementById('testimonials-title').textContent = c.testimonials.title;
   document.getElementById('testimonial-track').innerHTML = c.testimonials.items.map(t => `
-    <div class="testimonial-slide">
+    <div class="testimonial-slide" role="group" aria-roledescription="slide">
       <div class="testimonial-card">
         <div class="stars">${svgIcon('star').repeat(5)}</div>
         <p class="testimonial-quote">"${escapeHtml(t.quote)}"</p>
@@ -112,7 +112,7 @@ function renderHome(c, projects) {
     </div>
   `).join('');
   document.getElementById('carousel-dots').innerHTML = c.testimonials.items.map((_, i) =>
-    `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+    `<button type="button" class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Show testimonial ${i + 1}" aria-pressed="${i === 0}"></button>`
   ).join('');
 
   // CONTACT
@@ -155,25 +155,34 @@ function setupCarousel(itemCount) {
   function go(i) {
     index = (i + itemCount) % itemCount;
     track.style.transform = `translateX(-${index * 100}%)`;
-    dots().forEach((d, di) => d.classList.toggle('active', di === index));
+    dots().forEach((d, di) => {
+      d.classList.toggle('active', di === index);
+      d.setAttribute('aria-pressed', String(di === index));
+    });
+    track.querySelectorAll('.testimonial-slide').forEach((slide, si) => {
+      slide.setAttribute('aria-hidden', String(si !== index));
+      slide.setAttribute('aria-label', `${si + 1} of ${itemCount}`);
+    });
+    document.getElementById('carousel-status').textContent = `${index + 1} / ${itemCount}`;
   }
 
   prevBtn.addEventListener('click', () => go(index - 1));
   nextBtn.addEventListener('click', () => go(index + 1));
   dots().forEach(d => d.addEventListener('click', () => go(parseInt(d.dataset.index, 10))));
 
-  // auto-advance, pauses on hover
-  let timer = setInterval(() => go(index + 1), 6000);
-  const carousel = document.querySelector('.testimonial-carousel');
-  carousel.addEventListener('mouseenter', () => clearInterval(timer));
-  carousel.addEventListener('mouseleave', () => { timer = setInterval(() => go(index + 1), 6000); });
+  document.querySelector('.testimonial-carousel').addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    go(index + (event.key === 'ArrowRight' ? 1 : -1));
+  });
 
   go(0);
 }
 
 function setupAnimations() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const revealEls = Array.from(document.querySelectorAll('.anim-item, .anim-fade'));
-  const heroEls = Array.from(document.querySelectorAll('.hero-eyebrow, #hero h1, .hero-sub, .hero-actions a, .hero-stats'));
+  const heroEls = Array.from(document.querySelectorAll('.hero-eyebrow, #hero h1, .hero-sub, .hero-actions a, .hero-stats, .hero-portrait'));
   const allEls = revealEls.concat(heroEls);
 
   function forceShow() {
@@ -235,7 +244,7 @@ function setupAnimations() {
 
 function fixHashScroll() {
   if (!window.location.hash) return;
-  const target = document.querySelector(window.location.hash);
+  const target = document.getElementById(window.location.hash.slice(1));
   if (!target) return;
   requestAnimationFrame(() => {
     requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));

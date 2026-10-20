@@ -3,7 +3,7 @@ const PROJECTS = [
     slug: "healthcare",
     featured: true,
     thumbLabel: "Multi-Role Healthcare Dashboard",
-    cover: "images/projects/default-cover.svg",
+    cover: "images/projects/healthcare-cover.svg",
     tags: ["Angular", "Signals", "Role-Based Access", "PrimeNG"],
     title: "Multi-Role Healthcare Dashboards",
     description:
@@ -67,7 +67,7 @@ const PROJECTS = [
     slug: "research-platform",
     featured: false,
     thumbLabel: "Academic Collaboration Platform",
-    cover: "images/projects/default-cover.svg",
+    cover: "images/projects/research-platform-cover.svg",
     tags: ["Angular", "Signals", "AI Matching", "PrimeNG"],
     title: "Research Networking Platform",
     description:
@@ -130,7 +130,7 @@ const PROJECTS = [
     slug: "dashcam-monitoring",
     featured: false,
     thumbLabel: "Dashcam & Vehicle Monitoring",
-    cover: "images/projects/default-cover.svg",
+    cover: "images/projects/dashcam-monitoring-cover.svg",
     tags: ["Angular", "WebSockets", "OpenStreetMap", "Real-Time Streams"],
     title: "Real-Time Vehicle & Dashcam Monitoring",
     description:
@@ -196,7 +196,7 @@ const PROJECTS = [
     slug: "fleet-management",
     featured: false,
     thumbLabel: "GPS Fleet Tracking Platform",
-    cover: "images/projects/default-cover.svg",
+    cover: "images/projects/fleet-management-cover.svg",
     tags: ["Angular 14", "OpenStreetMap", "GPS", "Geofencing"],
     title: "Real-Time Fleet Management",
     description:
@@ -266,7 +266,7 @@ const PROJECTS = [
     slug: "didarba",
     featured: false,
     thumbLabel: "Smart Meeting Management",
-    cover: "images/projects/default-cover.svg",
+    cover: "images/projects/didarba-cover.svg",
     tags: ["Angular", "SignalR", "BigBlueButton", "Real-Time"],
     title: "Didarba – Smart Meeting Management",
     description:
