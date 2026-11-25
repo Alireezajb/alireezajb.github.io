@@ -1,0 +1,21 @@
+<a class="skip" href="#main">رفتن به محتوای اصلی</a>
+<header class="header" [class.is-scrolled]="scroll.isScrolled()" id="top">
+  <div class="wrap nav">
+    <a class="brand" routerLink="/" aria-label="علیرضا جابری، صفحهٔ اصلی"
+      ><span class="brand-name"
+        >علیرضا <strong>جابری</strong><span class="brand-dot" aria-hidden="true"></span></span
+    ></a>
+    <nav aria-label="ناوبری اصلی">
+      <a routerLink="/" fragment="work">نمونه‌کارها</a
+      ><a routerLink="/" fragment="about">درباره من</a
+      ><a routerLink="/" fragment="expertise">خدمات</a
+      ><a routerLink="/" fragment="experience">سوابق کاری</a>
+    </nav>
+    <a pButton [unstyled]="true" class="nav-contact" routerLink="/" fragment="contact"
+      >گفت‌وگو کنیم
+      <i class="pi pi-arrow-up-right" aria-hidden="true"></i
+    ></a>
+  </div>
+</header>
+
+

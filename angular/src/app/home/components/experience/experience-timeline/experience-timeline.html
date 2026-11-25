@@ -1,0 +1,14 @@
+<div class="experience-timeline">
+        <p-timeline [value]="experiences" align="left" class="career-timeline">
+          <ng-template #marker><span class="timeline-marker" aria-hidden="true"></span></ng-template>
+          <ng-template #content let-experience>
+            <article class="experience-entry">
+              <header><div><h3>{{ experience.company }}</h3><p>{{ experience.employment }}</p></div><span class="company-symbol" aria-hidden="true"><i class="pi" [class]="experience.icon"></i></span></header>
+              @for (role of experience.roles; track role.title) {
+                <div class="experience-role"><h4>{{ role.title }}</h4><p class="experience-date">{{ role.prefix }} <time [attr.datetime]="role.start.date">{{ role.start.label }}</time> تا @if (role.end) { <time [attr.datetime]="role.end.date">{{ role.end.label }}</time> } @else { اکنون }</p><p>{{ role.description }}</p></div>
+              }
+            </article>
+          </ng-template>
+        </p-timeline>
+        <div class="education-note"><span>تحصیلات</span><strong>کارشناسی مهندسی کامپیوتر</strong><p>دانشگاه شهید چمران اهواز · <span>۱۳۹۶</span> تا <span>۱۴۰۰</span></p></div>
+      </div>

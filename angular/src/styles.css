@@ -1,0 +1,35 @@
+@import 'primeicons/primeicons.css';
+@font-face { font-family: Vazirmatn; src: url('/assets/fonts/Vazirmatn.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 150px; }
+body { margin: 0; background: #0c0c0e; color: #f4f3fa; font: 16px/1.95 Vazirmatn, Tahoma, sans-serif; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #c084fc; outline-offset: 4px; }
+h1, h2, p { margin: 0; }
+p { color: #b0afc0; }
+.wrap { width: min(1200px, calc(100% - 80px)); margin-inline: auto; }
+@media (max-width: 1100px) { .wrap { width: calc(100% - 48px); } }
+@media (max-width: 760px) { .wrap { width: calc(100% - 40px); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+:root { --bg: #0c0c0e; --surface: #141416; --raised: #1d1d23; --line: #303039; --text: #f4f3fa; --muted: #b0afc0; --accent: #5b6ef5; --purple: #c084fc; --radius: 28px; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+h1, h2, h3 { font-weight: 750; line-height: 1.65; }
+h2 { font-size: clamp(32px, 3.4vw, 46px); letter-spacing: -1.2px; }
+h3 { font-size: 24px; letter-spacing: -.5px; }
+img { display: block; max-width: 100%; height: auto; }
+button, input { font: inherit; }
+.pi { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-texture { position: relative; isolation: isolate; }
+.section-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 25%, #7050981c, transparent 65%),
+    radial-gradient(circle, #d1b5ef20 0.7px, transparent 0.9px) 0 0 / 16px 16px;
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 75%, transparent);
+}
+@media (max-width: 760px) { .section-texture::before { opacity: .5; } }

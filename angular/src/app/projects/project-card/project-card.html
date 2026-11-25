@@ -1,0 +1,13 @@
+<article class="project" [class.project-small]="small()">
+  <div class="project-art">
+    @if (project().artLabel) { <div class="art-top"><i class="pi pi-objects-column" aria-hidden="true"></i><span>{{ project().artLabel }}</span></div> }
+    <img [src]="'assets/' + project().image" [alt]="project().imageAlt" width="1600" height="900" loading="lazy">
+  </div>
+  <div class="project-body">
+    <p class="project-category">{{ project().category }} <span>{{ project().year }}</span></p>
+    <h3>{{ project().cardTitle }}</h3><p>{{ project().cardSummary }}</p>
+    <div class="project-footer"><div class="project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div>
+      <a pButton [unstyled]="true" class="project-link" [routerLink]="['/projects', project().id]">{{ project().linkLabel }} <i class="pi pi-arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</article>

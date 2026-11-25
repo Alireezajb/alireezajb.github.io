@@ -1,0 +1,18 @@
+:host { display: block; }
+.detail { padding-block: 60px 90px; }
+.back { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-bottom: 30px; color: #d9bdf4; }
+.category { color: #cda9ee; font-size: 14px; }
+h1 { margin: 8px 0 14px; font-size: clamp(30px, 4vw, 50px); line-height: 1.6; }
+.summary { max-width: 720px; font-size: 17px; }
+.meta { display: flex; gap: 50px; flex-wrap: wrap; margin: 35px 0; padding: 22px 0; border-block: 1px solid #ffffff18; }
+.meta div { display: grid; gap: 5px; }
+.meta span, figcaption { color: #a796b8; font-size: 13px; }
+.meta strong { font-size: 14px; font-weight: 600; }
+figure { margin: 0; }
+img { display: block; width: 100%; height: auto; border-radius: 24px; }
+figcaption { margin-top: 8px; }
+.story { max-width: 760px; margin-top: 48px; }
+h2 { margin: 32px 0 10px; font-size: 22px; }
+ul { color: #b0afc0; padding-right: 22px; }
+.stack { text-align: right; }
+@media (max-width: 760px) { .detail { padding-block: 40px 60px; } .meta { gap: 20px 35px; } }

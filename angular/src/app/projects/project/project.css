@@ -1,0 +1,24 @@
+:host { display: block; }
+.projects { padding-block: 64px 80px; }
+.heading { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 20px 48px; }
+.heading::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at center, #70509820, transparent 70%), radial-gradient(circle, #d1b5ef20 .7px, transparent .9px) 0 0 / 16px 16px; mask-image: radial-gradient(ellipse, #000 25%, transparent 75%); }
+.eyebrow { display: inline-flex; align-items: center; min-height: 36px; margin-bottom: 18px; padding: 4px 16px; border: 1px solid #c4a7ea30; border-radius: 30px; background: #17141c; color: #cfb6f1; font-size: 13px; }
+h1 { max-width: 18ch; margin: 0; font-size: clamp(32px, 4vw, 50px); line-height: 1.65; letter-spacing: -1.2px; text-wrap: balance; }
+.intro { max-width: 540px; margin-top: 16px; color: #b0a6c0; font-size: 16px; line-height: 2; text-wrap: balance; }
+.grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 25px; }
+@media (max-width: 760px) { .projects { padding-block: 32px 50px; } .heading { padding: 12px 8px 34px; } .eyebrow { min-height: 34px; margin-bottom: 15px; font-size: 12px; } h1 { max-width: 16ch; font-size: clamp(27px, 7vw, 34px); letter-spacing: -.8px; line-height: 1.65; } .intro { margin-top: 14px; font-size: 14px; line-height: 2; } .grid { grid-template-columns: 1fr; gap: 24px; } }
+.heading { padding: 12px 0 34px; }
+.heading::before { mask-image: radial-gradient(ellipse, #000 15%, transparent 70%); }
+.eyebrow { margin-bottom: 10px; }
+h1 { max-width: none; font-size: clamp(24px, 3.5vw, 44px); white-space: nowrap; }
+.intro { margin-top: 8px; }
+.grid { grid-auto-rows: 1fr; }
+@media (max-width: 1100px) and (min-width: 761px) { .grid app-project-card { grid-column: span 3; } }
+@media (max-width: 760px) {
+  .heading { padding: 4px 0 26px; }
+  .eyebrow { margin-bottom: 8px; }
+  h1 { max-width: none; font-size: clamp(20px, 6vw, 30px); letter-spacing: -.6px; }
+  .intro { margin-top: 8px; font-size: 13px; }
+  .grid { grid-auto-rows: auto; }
+}
+@media (max-width: 760px) { .grid { grid-auto-rows: 1fr; } }
