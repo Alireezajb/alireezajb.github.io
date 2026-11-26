@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonDirective } from 'primeng/button';
-import { ProjectData } from '../projects.data';
+import { ProjectData } from '../../projects.service';
 
 @Component({
   selector: 'app-project-card',

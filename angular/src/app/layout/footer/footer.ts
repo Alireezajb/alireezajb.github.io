@@ -1,18 +1,10 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { ButtonDirective } from 'primeng/button';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [ButtonDirective],
+  imports: [RouterLink],
   selector: 'app-footer',
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-export class Footer {
-  private readonly document = inject(DOCUMENT);
-
-  protected scrollToTop(): void {
-    this.document.defaultView?.scrollTo({ top: 0, behavior: 'auto' });
-  }
-}
-
+export class Footer {}

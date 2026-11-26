@@ -1,12 +1,39 @@
 <section class="wrap detail">
   <a class="back" routerLink="/projects"><i class="pi pi-arrow-right" aria-hidden="true"></i> بازگشت به پروژه‌ها</a>
   @if (project | async; as item) {
-    <p class="category">{{ item.category }}</p><h1>{{ item.title }}</h1><p class="summary">{{ item.cardSummary }}</p>
-    <div class="meta"><div><span>همکاری با</span><strong>رایان اندیشه نصر</strong></div><div><span>نقش من</span><strong>{{ item.role }}</strong></div><div><span>بازهٔ پروژه</span><strong>{{ item.time }}</strong></div></div>
-    <figure><img [src]="'assets/' + item.image" alt="" width="1600" height="900"><figcaption>تصویرسازی مفهومی پروژه؛ اسکرین‌شات محصول نیست.</figcaption></figure>
-    <div class="story"><h2>مسئله چه بود؟</h2><p>{{ item.problem }}</p><h2>کاری که انجام دادم</h2><ul>@for (point of item.points; track point) { <li>{{ point }}</li> }</ul><h2>ابزارها و فناوری‌ها</h2><p dir="ltr" class="stack">{{ item.stack }}</p></div>
+    <header class="detail-header">
+      <div class="tags"><span>{{ item.category }}</span></div>
+      <h1>{{ item.title }}</h1>
+      <p class="summary">{{ item.summary }}</p>
+      <dl class="meta"><div><dt>نقش من</dt><dd>{{ item.role }}</dd></div><div><dt>بازهٔ پروژه</dt><dd>{{ item.time }}</dd></div><div><dt>حوزهٔ کار</dt><dd>{{ item.services.join('، ') }}</dd></div></dl>
+    </header>
+    <section class="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-heading"><h2 id="gallery-title">نگاهی به پروژه</h2><span>{{ selectedImage() + 1 }} / {{ item.gallery.length }}</span></div>
+      <div class="gallery-layout"><figure><img [src]="'assets/' + item.gallery[selectedImage()].src" [alt]="item.gallery[selectedImage()].alt" width="1600" height="900"></figure>
+      <div class="thumbnails" aria-label="تصاویر پروژه">@for (image of item.gallery; track image.src; let i = $index) { <button type="button" [class.selected]="selectedImage() === i" [attr.aria-pressed]="selectedImage() === i" [attr.aria-label]="'نمایش تصویر ' + (i + 1) + ': ' + image.alt" (click)="selectedImage.set(i)"><img [src]="'assets/' + image.src" alt="" width="1600" height="900" loading="lazy"></button> }</div></div>
+    </section>
+    <div class="case-body"><nav class="contents" aria-label="بخش‌های پروژه"><p>در این صفحه</p><a [routerLink]="[]" fragment="problem">مسئله</a><a [routerLink]="[]" fragment="approach">راهکار</a><a [routerLink]="[]" fragment="architecture">معماری</a><a [routerLink]="[]" fragment="results">نتیجه</a></nav><div class="story">
+      <section class="story-section" id="problem"><h2>مسئله چه بود؟</h2><div><p>{{ item.problem }}</p><p>{{ item.problemDetail }}</p></div></section>
+      <section class="story-section" id="approach"><h2>راهکار</h2><div><p>{{ item.approachIntro }}</p><ul class="approach-list">@for (point of item.points; track point) { <li><i class="pi pi-arrow-left" aria-hidden="true"></i><span>{{ point }}</span></li> }</ul></div></section>
+      <section class="story-section" id="architecture"><h2>معماری پروژه</h2><div><p>{{ item.architecture }}</p></div></section>
+      <section class="story-section" id="results"><h2>نتیجه</h2><div><div class="outcomes">@for (stat of item.resultStats; track stat.label) { <div><strong>{{ stat.value }}</strong><span [title]="stat.label">{{ stat.label }}</span></div> }</div>@if (item.id === 'didarba') { <p class="result-note">مهم‌ترین تأثیر، حذف جابه‌جایی میان ابزارهای مختلف بود. شرکت‌کنندگان می‌گفتند چون محتوای جلسه، دستور کار و گفت‌وگوی پیش از جلسه در کنار تماس تصویری قرار داشت، با آمادگی بیشتری در جلسه حاضر می‌شدند؛ بدون اینکه اطلاعات میان ایمیل‌ها و برنامه‌های مختلف پراکنده باشد.</p><blockquote><p>«قبلاً پنج دقیقهٔ اول هر جلسه صرف این می‌شد که همه را وارد ابزار مناسب کنیم. با دیداربا، جلسه همان اول شروع می‌شود؛ همه‌چیز از قبل آماده است.»</p><footer>— مدیر عملیات، کاربر سامانه</footer></blockquote> }</div></section>
+
+    </div>
+    </div>
+    <aside class="next-step"><a class="next-card" routerLink="/" fragment="contact"><span>ایده‌ای برای ساخت دارید؟</span><strong>دربارهٔ پروژه‌تان صحبت کنیم <i class="pi pi-comments" aria-hidden="true"></i></strong></a><a class="next-card" [routerLink]="['/projects', nextProject(item.id).id]"><span>پروژهٔ بعدی <i class="pi pi-arrow-left" aria-hidden="true"></i></span><strong>{{ nextProject(item.id).title }}</strong></a></aside>
   } @else {
     <h1>پروژه پیدا نشد.</h1><p>این نشانی به پروژه‌ای در فهرست اشاره نمی‌کند.</p>
   }
 </section>
+
+
+
+
+
+
+
+
+
+
+
 

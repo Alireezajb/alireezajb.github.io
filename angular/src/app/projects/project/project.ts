@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { projects } from '../projects.data';
-import { ProjectCard } from '../project-card/project-card';
+import { Component, inject } from '@angular/core';
+import { ProjectsService } from '../projects.service';
+import { ProjectCard } from '../components/project-card/project-card';
 
 @Component({
   selector: 'app-project',
@@ -9,5 +9,5 @@ import { ProjectCard } from '../project-card/project-card';
   styleUrl: './project.css',
 })
 export class Project {
-  protected readonly projects = projects;
+  protected readonly projects = inject(ProjectsService).getAllProjects();
 }
