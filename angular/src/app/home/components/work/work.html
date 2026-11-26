@@ -1,10 +1,12 @@
 <section class="section wrap" id="work" aria-labelledby="work-title">
-      <div class="work-heading"><h2 id="work-title">چند پروژه، چند مسئلهٔ واقعی.</h2><a pButton [unstyled]="true" class="all-projects" routerLink="/projects">مشاهده همه پروژه‌ها <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
+      <div class="work-heading"><h2 id="work-title">چند پروژه، چند مسئلهٔ واقعی.</h2></div>
       <div class="work-grid">
         @for (project of projects; track project.id) {
           <app-project-card class="home-card" [project]="project" />
         }
       </div>
+
+      <div class="all-projects-wrap"><a pButton [unstyled]="true" class="all-projects" routerLink="/projects">مشاهده همه پروژه‌ها <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
 
       <div class="work-note"><div><h3>پروژهٔ شما می‌تواند قدم بعدی باشد.</h3><p>نیاز یا ایده‌تان را بگویید؛ با هم بررسی کنیم چه راهکاری برای کسب‌وکار شما مناسب است.</p></div><a pButton [unstyled]="true" class="button secondary" routerLink="/" fragment="contact">دربارهٔ پروژه‌ام صحبت کنیم <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
     </section>

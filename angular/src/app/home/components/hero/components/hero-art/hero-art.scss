@@ -1,0 +1,21 @@
+:host { display: block; min-width: 0; }
+.hero-art { position: relative; display: grid; place-items: center; min-height: 450px; direction: ltr; }
+.hero-art::before { content: ''; position: absolute; width: 75%; aspect-ratio: 1; border-radius: 50%; background: #7661ca; filter: blur(110px); opacity: .23; }
+.art-orbit { position: absolute; width: 85%; aspect-ratio: 1; border: 1px solid #bba4ff24; border-radius: 50%; transform: rotate(-25deg) scaleY(.72); }
+.orbit-two { width: 90%; transform: rotate(35deg) scaleY(.72); }
+.art-window { position: relative; width: min(86%, 370px); aspect-ratio: 1.15; border: 1px solid #b5a2e65c; border-radius: 22px; background: linear-gradient(145deg, #29243c, #15131f 72%); box-shadow: 0 30px 80px #0008, inset 0 1px #ffffff1f; transform: rotate(-7deg); }
+.window-top { display: flex; align-items: center; gap: 12px; padding: 13px 17px; border-bottom: 1px solid #ffffff14; }
+.window-controls { display: flex; flex: none; gap: 6px; }
+.window-controls span { width: 7px; height: 7px; border-radius: 50%; background: #a393bd; }
+.window-body { display: grid; gap: 15px; padding: 38px 30px; }
+.code-line { height: 7px; border-radius: 10px; background: #a896c647; }
+.code-line.short { width: 32%; background: #bb9ef3; }
+.code-line.medium { width: 55%; }
+.code-line.long { width: 77%; }
+.code-line.indent { margin-left: 25px; }
+.art-cursor { position: absolute; right: -20px; bottom: 22px; display: grid; place-items: center; width: 70px; height: 70px; border-radius: 20px; background: #c7b4ff; color: #292039; font-size: 42px; box-shadow: 0 15px 35px #0005; transform: rotate(7deg); }
+.art-caption { position: absolute; bottom: 25px; color: #a69abf; font-size: 10px; letter-spacing: .16em; }
+.art-caption span { color: #6e617f; margin: 0 5px; }
+@media (max-width: 900px) { .hero-art { min-height: 360px; } }
+@media (max-width: 700px) { .hero-art { min-height: 320px; max-width: 400px; width: 100%; margin: 0 auto; } .art-window { width: 70%; } .art-orbit { width: 70%; } .orbit-two { width: 85%; } .art-caption { bottom: 12px; } }
+@media (max-width: 360px) { .hero-art { min-height: 280px; } }

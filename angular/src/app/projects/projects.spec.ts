@@ -16,25 +16,32 @@ describe('project routes', () => {
       title: card.querySelector('h3')?.textContent,
       link: card.querySelector('a')?.getAttribute('href'),
     }));
-    expect(homeCards.length).toBe(5);
+    expect(homeCards.length).toBe(4);
     await router.navigateByUrl('/projects');
     fixture.detectChanges();
-    expect(page.querySelectorAll('article').length).toBe(5);
+    expect(page.querySelectorAll('app-project-card').length).toBe(10);
     const projectCards = [...page.querySelectorAll('app-project-card')].map(card => ({
       title: card.querySelector('h3')?.textContent,
       link: card.querySelector('a')?.getAttribute('href'),
     }));
-    expect(projectCards).toEqual(homeCards);
+    expect(projectCards).toEqual(expect.arrayContaining(homeCards));
     await router.navigateByUrl('/projects/healthcare');
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
-    expect(page.querySelector('main h1')?.textContent).toContain('داشبوردهای چندنقشی درمان');
+    expect(page.querySelector('main h1')?.textContent).toContain('پیشگو سلامت');
     await router.navigateByUrl('/projects/fleet');
     fixture.detectChanges();
     await fixture.whenStable();
     fixture.detectChanges();
-    expect(page.querySelector('main h1')?.textContent).toContain('سامانهٔ مدیریت و ردیابی ناوگان');
+    expect(page.querySelector('main h1')?.textContent).toContain('فیلیت‌یار');
+    for (const [id, title] of [['ranovika', 'رانویکا'], ['shahrnik', 'شهرنیک'], ['taavonkar', 'تعاون‌کار'], ['madonik', 'مدونیک'], ['dyar', 'دیار']]) {
+      await router.navigateByUrl('/projects/' + id);
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(page.querySelector('main h1')?.textContent).toContain(title);
+    }
     await router.navigateByUrl('/projects/unknown');
     fixture.detectChanges();
     await fixture.whenStable();

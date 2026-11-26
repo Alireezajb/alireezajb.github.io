@@ -4,9 +4,9 @@
     <img [src]="'assets/' + project().image" [alt]="project().imageAlt" width="1600" height="900" loading="lazy">
   </div>
   <div class="project-body">
-    <p class="project-category">{{ project().category }} <span>{{ project().year }}</span></p>
-    <h3>{{ project().cardTitle }}</h3><div class="home-services project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div><p>{{ project().cardSummary }}</p>
-    <div class="project-footer"><span class="home-date">{{ project().time }}</span><div class="project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div>
+    <p class="project-category">{{ project().title }} <span>{{ project().year }}</span></p>
+    <h3>{{ project().cardTitle }}</h3><div class="home-services project-services">@for (category of project().category; track category) { <span>{{ category }}</span> }</div><p>{{ project().summary }}</p>
+    <div class="project-footer"><span class="home-date">{{ project().time }}</span><div class="project-services">@for (category of project().category; track category) { <span>{{ category }}</span> }</div>
       <a pButton [unstyled]="true" class="project-link" [routerLink]="['/projects', project().id]">{{ project().linkLabel }} <i class="pi pi-arrow-up-right" aria-hidden="true"></i></a>
     </div>
   </div>

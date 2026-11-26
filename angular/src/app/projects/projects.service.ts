@@ -1,7 +1,18 @@
 import { Injectable } from '@angular/core';
-import projects from './projects.json';
+import projectData from './projects.json';
+import { isProjectCategory, ProjectCategory } from './project-category.model';
 
-export type ProjectData = (typeof projects)[number];
+export type ProjectData = Omit<(typeof projectData)[number], 'category'> & { category: ProjectCategory[] };
+
+const projects: ProjectData[] = projectData.map(project => {
+  const category = project.category.map(value => {
+    if (!isProjectCategory(value)) {
+      throw new Error(`Invalid category for project ${project.id}: ${value}`);
+    }
+    return value;
+  });
+  return { ...project, category };
+});
 
 @Injectable({ providedIn: 'root' })
 export class ProjectsService {

@@ -9,7 +9,8 @@
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 56px; padding: 13px 25px; border: 1px solid #ffffff26; border-radius: 14px; color: #eeeaf9; background: #ffffff08; font-size: 15px; font-weight: 600; line-height: 1.7; }
 .button:hover { background: #ffffff15; border-color: #c6b0ed70; }
 .button:focus-visible { outline: 2px solid #d8ccff; outline-offset: 4px; }
-.all-projects { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: #c8b0ec; font-size: 14px; font-weight: 600; }
+.all-projects-wrap { display: flex; justify-content: center; margin-top: 32px; }
+.all-projects { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px; border: 1px solid #c3a9f042; border-radius: 12px; color: #c8b0ec; font-size: 14px; font-weight: 600; }
 .all-projects:hover { color: #eee6ff; }
 .all-projects:focus-visible { outline: 2px solid #d8ccff; outline-offset: 4px; }
 .work-note { display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-top: 70px; padding: 36px 40px; border-radius: 22px; background: #211b30; }

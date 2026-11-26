@@ -1,7 +1,6 @@
 <section class="hero wrap" id="home" aria-labelledby="hero-title">
   <div class="hero-main">
     <div class="hero-copy">
-      <p class="hero-signature"><span></span> علیرضا جابری، مهندس نرم‌افزار</p>
       <h1 id="hero-title">پشت هر تجربهٔ خوب،<br>یک ساختِ درست است.</h1>
       <p class="hero-intro">از یک ایده تا محصولی که هر روز به کارتان می‌آید؛ وب‌سایت و نرم‌افزاری می‌سازم که با نیاز کسب‌وکارتان رشد کند.</p>
       <div class="actions">
@@ -9,19 +8,14 @@
         <a pButton [unstyled]="true" class="button secondary" routerLink="/" fragment="collaboration">دربارهٔ همکاری</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-      <div class="art-window">
-        <div class="window-top"><span></span><span></span><span></span></div>
-        <div class="window-body"><div class="code-line short"></div><div class="code-line medium"></div><div class="code-line long"></div><div class="code-line medium indent"></div><div class="code-line short indent"></div><div class="code-line long"></div></div>
-        <div class="art-cursor">✳</div>
-      </div>
-      <div class="art-caption" dir="ltr">IDEA <span>—</span> DESIGN <span>—</span> BUILD</div>
-    </div>
+    <app-hero-art />
   </div>
   <div class="hero-bottom">
-    <div class="hero-proof"><div class="proof-metric"><strong dir="ltr">5<span>+</span></strong><span>سال تجربهٔ حرفه‌ای</span></div><div class="proof-metric"><strong dir="ltr">15<span>+</span></strong><span>پروژهٔ تحویل‌شده</span></div></div>
-    <a pButton [unstyled]="true" class="scroll-cue" routerLink="/" fragment="work">کشف نمونه‌کارها <i class="pi pi-arrow-down" aria-hidden="true"></i></a>
+    <div class="hero-proof" aria-label="تجربه و پروژه‌ها">
+      <div class="proof-metric"><strong dir="ltr">6<span>+</span></strong><span>سال تجربهٔ حرفه‌ای</span></div>
+      <div class="proof-metric"><strong dir="ltr">18<span>+</span></strong><span>پروژهٔ تحویل‌شده</span></div>
+      <div class="proof-metric"><strong dir="ltr">3<span>+</span></strong><span>سال توسعهٔ ارشد وب</span></div>
+    </div>
   </div>
 </section>
 
