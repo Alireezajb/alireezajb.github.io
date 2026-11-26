@@ -1,10 +1,16 @@
-<section class="section wrap section-texture" id="work" aria-labelledby="work-title">
-      <div class="section-heading work-heading"><div><p class="eyebrow">نمونه‌کارهای منتخب</p><h2 id="work-title">چند پروژه، چند مسئلهٔ واقعی.</h2></div><p>از داشبوردهای درمانی تا ردیابی زندهٔ خودرو؛<br>هر پروژه، یک مسئلهٔ متفاوت و یک تجربهٔ تازه.</p></div>
+<section class="section wrap" id="work" aria-labelledby="work-title">
+      <div class="work-heading"><h2 id="work-title">چند پروژه، چند مسئلهٔ واقعی.</h2><a pButton [unstyled]="true" class="all-projects" routerLink="/projects">مشاهده همه پروژه‌ها <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
       <div class="work-grid">
-        @for (project of projects; track project.id; let i = $index) {
-          <app-project-card [project]="project" [small]="i >= 2" [reversed]="i === 1" />
+        @for (project of projects; track project.id) {
+          <app-project-card class="home-card" [project]="project" />
         }
       </div>
-      <div class="all-projects"><a pButton [unstyled]="true" class="button secondary" routerLink="/projects">مشاهده همه پروژه‌ها <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
+
       <div class="work-note"><div><h3>پروژهٔ شما می‌تواند قدم بعدی باشد.</h3><p>نیاز یا ایده‌تان را بگویید؛ با هم بررسی کنیم چه راهکاری برای کسب‌وکار شما مناسب است.</p></div><a pButton [unstyled]="true" class="button secondary" routerLink="/" fragment="contact">دربارهٔ پروژه‌ام صحبت کنیم <i class="pi pi-arrow-left" aria-hidden="true"></i></a></div>
     </section>
+
+
+
+
+
+

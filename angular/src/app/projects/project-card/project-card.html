@@ -5,9 +5,10 @@
   </div>
   <div class="project-body">
     <p class="project-category">{{ project().category }} <span>{{ project().year }}</span></p>
-    <h3>{{ project().cardTitle }}</h3><p>{{ project().cardSummary }}</p>
-    <div class="project-footer"><div class="project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div>
+    <h3>{{ project().cardTitle }}</h3><div class="home-services project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div><p>{{ project().cardSummary }}</p>
+    <div class="project-footer"><span class="home-date">{{ project().time }}</span><div class="project-services">@for (service of project().services; track service) { <span>{{ service }}</span> }</div>
       <a pButton [unstyled]="true" class="project-link" [routerLink]="['/projects', project().id]">{{ project().linkLabel }} <i class="pi pi-arrow-up-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </article>
+

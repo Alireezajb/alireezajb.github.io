@@ -6,10 +6,11 @@
   </header>
   <div class="grid">
     @for (project of projects; track project.id) {
-      <app-project-card class="catalog-card" [project]="project" [small]="true" />
+      <app-project-card class="home-card" [project]="project" />
     }
   </div>
 </section>
+
 
 
 
