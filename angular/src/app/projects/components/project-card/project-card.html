@@ -1,7 +1,7 @@
 <article class="project" [class.project-small]="small()">
   <div class="project-art">
     @if (project().artLabel) { <div class="art-top"><i class="pi pi-objects-column" aria-hidden="true"></i><span>{{ project().artLabel }}</span></div> }
-    <img [src]="'assets/' + project().image" [alt]="project().imageAlt" width="1600" height="900" loading="lazy">
+    <img [class.project-logo]="project().image.startsWith('logos/')" [src]="'assets/' + project().image" [alt]="project().imageAlt" width="1600" height="900" loading="lazy">
   </div>
   <div class="project-body">
     <p class="project-category">{{ project().title }} <span>{{ project().year }}</span></p>

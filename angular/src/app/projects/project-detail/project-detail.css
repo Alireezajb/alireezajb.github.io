@@ -86,3 +86,9 @@ blockquote footer { margin-top: 10px; color: #aa9db9; font-size: 14px; }
 
 
 
+
+.thumbnails img { aspect-ratio: 16 / 9; object-fit: contain; }
+
+
+figure img.project-logo { box-sizing: border-box; width: min(100%, 620px); height: auto; aspect-ratio: 16 / 9; object-fit: contain; padding: 24px; background: #f8f7fa; }
+.thumbnails img.project-logo { box-sizing: border-box; padding: 5px; background: #f8f7fa; }

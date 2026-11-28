@@ -9,8 +9,8 @@
     </header>
     <section class="gallery" aria-labelledby="gallery-title">
       <div class="gallery-heading"><h2 id="gallery-title">نگاهی به پروژه</h2><span>{{ selectedImage() + 1 }} / {{ item.gallery.length }}</span></div>
-      <div class="gallery-layout"><figure><img [src]="'assets/' + item.gallery[selectedImage()].src" [alt]="item.gallery[selectedImage()].alt" width="1600" height="900"></figure>
-      <div class="thumbnails" aria-label="تصاویر پروژه">@for (image of item.gallery; track image.src; let i = $index) { <button type="button" [class.selected]="selectedImage() === i" [attr.aria-pressed]="selectedImage() === i" [attr.aria-label]="'نمایش تصویر ' + (i + 1) + ': ' + image.alt" (click)="selectedImage.set(i)"><img [src]="'assets/' + image.src" alt="" width="1600" height="900" loading="lazy"></button> }</div></div>
+      <div class="gallery-layout"><figure><img [class.project-logo]="item.gallery[selectedImage()].src.startsWith('logos/')" [src]="'assets/' + item.gallery[selectedImage()].src" [alt]="item.gallery[selectedImage()].alt" width="1600" height="900"></figure>
+      <div class="thumbnails" aria-label="تصاویر پروژه">@for (image of item.gallery; track image.src; let i = $index) { <button type="button" [class.selected]="selectedImage() === i" [attr.aria-pressed]="selectedImage() === i" [attr.aria-label]="'نمایش تصویر ' + (i + 1) + ': ' + image.alt" (click)="selectedImage.set(i)"><img [class.project-logo]="image.src.startsWith('logos/')" [src]="'assets/' + image.src" alt="" width="1600" height="900" loading="lazy"></button> }</div></div>
     </section>
     <div class="case-body"><nav class="contents" aria-label="بخش‌های پروژه"><p>در این صفحه</p><a [routerLink]="[]" fragment="problem">مسئله</a><a [routerLink]="[]" fragment="approach">راهکار</a><a [routerLink]="[]" fragment="architecture">معماری</a><a [routerLink]="[]" fragment="results">نتیجه</a></nav><div class="story">
       <section class="story-section" id="problem"><h2>مسئله چه بود؟</h2><div><p>{{ item.problem }}</p><p>{{ item.problemDetail }}</p></div></section>
