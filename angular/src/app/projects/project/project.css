@@ -23,3 +23,5 @@ h1 { max-width: none; font-size: clamp(24px, 3.5vw, 44px); white-space: nowrap; 
 }
 
 
+
+@media (max-width: 760px) { h1 { white-space: normal; overflow-wrap: anywhere; } }

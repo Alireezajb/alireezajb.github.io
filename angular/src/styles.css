@@ -33,3 +33,5 @@ button, input { font: inherit; }
   mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 75%, transparent);
 }
 @media (max-width: 760px) { .section-texture::before { opacity: .5; } }
+
+@media (max-width: 760px) { h2 { font-size: clamp(24px, 6vw, 32px); letter-spacing: -.6px; } h3 { font-size: clamp(19px, 5vw, 23px); } }

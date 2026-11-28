@@ -29,3 +29,5 @@
 }
 @media (max-width: 360px) { .wrap { width: calc(100% - 32px); } .about-statement h2 { font-size: 27px; } .about-outcome { padding: 18px; } }
 
+
+@media (max-width: 760px) { .about-statement h2 { font-size: clamp(23px, 6vw, 30px); } }

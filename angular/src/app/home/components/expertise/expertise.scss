@@ -57,3 +57,5 @@
   .services-heading>p br { display: none; }
 }
 
+
+@media (max-width: 760px) { .services-heading h2 { font-size: clamp(24px, 6.5vw, 32px); } .expertise-grid h3 { font-size: clamp(20px, 5.5vw, 24px); } }

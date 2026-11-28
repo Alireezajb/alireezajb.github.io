@@ -30,3 +30,5 @@
 :host.has-scroll-progress ::ng-deep .p-timeline-event-content { filter: brightness(calc(.5 + .5 * var(--progress, 1))); }
 :host.has-scroll-progress ::ng-deep .p-timeline-event-connector { background: linear-gradient(to bottom, #ad85daaa calc(var(--progress, 1) * 100%), #baa0db2b calc(var(--progress, 1) * 100%)); }
 @media (prefers-reduced-motion: reduce) { :host.has-scroll-progress ::ng-deep .p-timeline-event-content { filter: none; } :host.has-scroll-progress ::ng-deep .p-timeline-event-connector { background: #ad85da99; } }
+
+@media (max-width: 760px) { .experience-entry h3 { font-size: clamp(18px, 5vw, 21px); overflow-wrap: anywhere; } }

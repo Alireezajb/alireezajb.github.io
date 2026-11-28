@@ -32,3 +32,5 @@
 @media (max-width: 360px) { .wrap { width: calc(100% - 32px); } .contact-section { padding-inline: 18px; } .contact-route { gap: 10px; } .route-copy bdi { font-size: 13px; } }
 
 
+
+@media (max-width: 760px) { .contact-intro h2 { font-size: clamp(24px, 6.5vw, 34px); } }

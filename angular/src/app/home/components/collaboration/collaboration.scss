@@ -93,3 +93,5 @@
   .section-heading.services-heading { gap: 16px; margin-bottom: 28px; }
 }
 
+
+@media (max-width: 760px) { .collaboration-heading h2 { font-size: clamp(24px, 6.5vw, 32px); } .collab-card h3 { font-size: clamp(21px, 5.8vw, 26px); } .process-heading h3 { font-size: clamp(20px, 5.5vw, 24px); } }
