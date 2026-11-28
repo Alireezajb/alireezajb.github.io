@@ -140,6 +140,9 @@
 
 
 .project .project-art img.project-logo { object-fit: contain; padding: 12px; background: #f8f7fa; }
+.project .project-art img[src$="/logos/shahrnik.png"] { background: #86d0ee; }
+.project .project-art img[src$="/logos/pishgu.webp"] { background: #bccbce; }
+.project .project-art img[src$="/logos/dyar.png"] { background: #ffcc00; }
 
 @media (max-width: 760px) {
   :host(.home-card) .project { grid-template-columns: minmax(64px, 22%) minmax(0, 1fr); column-gap: 12px; }
