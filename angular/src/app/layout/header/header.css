@@ -4,7 +4,9 @@
 .header { padding-top: 16px; }
 .nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border: 1px solid #ffffff12; border-radius: 22px; background: #17171bed; backdrop-filter: blur(24px); padding: 12px 22px; box-shadow: 0 10px 35px #0002; }
 .brand { display: inline-flex; align-items: center; min-height: 44px; flex-shrink: 0; }
-.brand-name { display: flex; align-items: baseline; gap: 6px; font-size: 23px; letter-spacing: -.9px; white-space: nowrap; }
+.brand-text { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.brand-name { display: flex; align-items: baseline; gap: 6px; font-size: 21px; line-height: 1.25; letter-spacing: -.7px; white-space: nowrap; }
+.brand-title { color: #bfb5cd; font-size: 12px; line-height: 1.4; }
 .brand-name strong { font-weight: 800; }
 .brand-dot { width: 6px; height: 6px; background: #c084fc; border-radius: 50%; margin-right: 3px; }
 nav { display: flex; gap: 5px; color: #b8b7c8; font-size: 14px; }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { App } from './app';
@@ -13,6 +14,7 @@ describe('App layout', () => {
       imports: [App],
       providers: [provideRouter([{ ...routes[0], children: [...routes[0].children!, { path: 'other', component: OtherPage }] }])],
     }).compileComponents();
+    const setOffset = vi.spyOn(TestBed.inject(ViewportScroller), 'setOffset');
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const router = TestBed.inject(Router);
@@ -20,6 +22,7 @@ describe('App layout', () => {
     fixture.detectChanges();
     const page = fixture.nativeElement as HTMLElement;
     const header = page.querySelector('header');
+    expect(setOffset).toHaveBeenCalledWith(expect.any(Function));
     const footer = page.querySelector('footer');
     expect(page.querySelector('main h1')?.textContent).toContain('پشت هر تجربهٔ خوب');
     for (const id of ['home', 'work', 'about', 'expertise', 'experience', 'collaboration', 'contact']) {
