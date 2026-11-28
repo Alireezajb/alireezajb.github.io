@@ -5,6 +5,7 @@
       <div class="tags">@for (category of item.category; track category) { <span>{{ category }}</span> }</div>
       <h1>{{ item.title }}</h1>
       <p class="summary">{{ item.summary }}</p>
+      @if (item.website) { <a class="back" [href]="item.website" target="_blank" rel="noopener noreferrer" aria-label="مشاهده وب‌سایت پروژه (در پنجرهٔ جدید)">مشاهده وب‌سایت پروژه <i class="pi pi-arrow-up-right" aria-hidden="true"></i></a> }
       <dl class="meta"><div><dt>نقش من</dt><dd>{{ item.role }}</dd></div><div><dt>بازهٔ پروژه</dt><dd>{{ item.time }}</dd></div><div><dt>حوزهٔ کار</dt><dd>{{ item.category.join('، ') }}</dd></div></dl>
     </header>
     <section class="gallery" aria-labelledby="gallery-title">

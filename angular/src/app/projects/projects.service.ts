@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import projectData from './projects.json';
 import { isProjectCategory, ProjectCategory } from './project-category.model';
 
-export type ProjectData = Omit<(typeof projectData)[number], 'category'> & { category: ProjectCategory[] };
+export type ProjectData = Omit<(typeof projectData)[number], 'category'> & { category: ProjectCategory[]; website?: string };
 
 const projects: ProjectData[] = projectData.map(project => {
   const category = project.category.map(value => {

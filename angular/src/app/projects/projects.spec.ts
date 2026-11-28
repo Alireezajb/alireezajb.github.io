@@ -19,7 +19,7 @@ describe('project routes', () => {
     expect(homeCards.length).toBe(4);
     await router.navigateByUrl('/projects');
     fixture.detectChanges();
-    expect(page.querySelectorAll('app-project-card').length).toBe(10);
+    expect(page.querySelectorAll('app-project-card').length).toBe(11);
     const projectCards = [...page.querySelectorAll('app-project-card')].map(card => ({
       title: card.querySelector('h3')?.textContent,
       link: card.querySelector('a')?.getAttribute('href'),
@@ -35,7 +35,7 @@ describe('project routes', () => {
     await fixture.whenStable();
     fixture.detectChanges();
     expect(page.querySelector('main h1')?.textContent).toContain('فیلیت‌یار');
-    for (const [id, title] of [['ranovika', 'رانویکا'], ['shahrnik', 'شهرنیک'], ['taavonkar', 'تعاون‌کار'], ['madonik', 'مدونیک'], ['dyar', 'دیار'], ['taxilon', 'تاکسی‌لون']]) {
+    for (const [id, title] of [['ranovika', 'رانویکا'], ['shahrnik', 'شهرنیک'], ['shahrnik-org', 'شهرنیک سازمانی'], ['taavonkar', 'تعاون‌کار'], ['madonik', 'مدونیک'], ['dyar', 'دیار'], ['taxilon', 'تاکسی‌لون']]) {
       await router.navigateByUrl('/projects/' + id);
       fixture.detectChanges();
       await fixture.whenStable();
