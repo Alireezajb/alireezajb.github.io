@@ -34,3 +34,16 @@
 
 
 @media (max-width: 760px) { .contact-intro h2 { font-size: clamp(24px, 6.5vw, 34px); } }
+.contact-section { position: relative; overflow: hidden; border-color: #b79be75c; background: radial-gradient(ellipse at 0% 0%, #7653a33b, transparent 30%), linear-gradient(145deg, #1d192b, #14121d 70%); box-shadow: inset 0 1px #d3b3ff24, 0 6px 30px #7d3db21a; }
+.contact-intro h2 span { color: #c9a0ff; }
+.contact-links { border: 0; }
+.contact-route { min-height: 82px; margin-bottom: 12px; padding: 13px; border: 1px solid #c9b1e938; border-radius: 16px; background: #ffffff08; }
+.route-icon { background: #ad8ad524; }
+.route-arrow { justify-self: end; }
+.contact-profiles { gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #d1b9f12b; }
+.contact-profiles a { flex: 1; justify-content: center; gap: 10px; min-height: 48px; padding: 6px 10px; border: 1px solid #c9b1e938; border-radius: 999px; background: #ffffff08; }
+.contact-profiles a .pi, .contact-call .pi, .route-icon .pi, .route-arrow { font-size: 19px; }
+@media (max-width: 760px) { .contact-section { gap: 26px; }.contact-call { margin-top: 24px; }.contact-route { gap: 12px; }.contact-profiles { margin-top: 22px; } }
+@media (max-width: 480px) {
+  .email-route .route-copy bdi { white-space: nowrap; font-size: clamp(8px, 2.4vw, 11px); }
+}

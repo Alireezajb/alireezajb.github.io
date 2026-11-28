@@ -23,3 +23,15 @@
 @media (max-width: 360px) { .wrap { width: calc(100% - 32px); } .actions { flex-direction: column; } .button { width: 100%; } }
 
 
+.hero-label { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 5px 16px; margin-bottom: 20px; border: 1px solid #c8aaf029; border-radius: 999px; background: #ffffff09; color: #ded4eb; font-size: 13px; }
+.hero-label span, .hero h1 span { color: #c9a0ff; }
+.hero { background: radial-gradient(ellipse at 80% 35%, #6434a51c, transparent 48%); }
+@media (max-width: 700px) {
+  .hero { padding-top: 48px; }
+  .hero-copy { text-align: center; }
+  .hero h1 { font-size: clamp(27px, 7vw, 38px); }
+  .hero-intro { margin-inline: auto; }
+  .actions { justify-content: center; flex-wrap: nowrap; gap: 10px; }
+  .actions .button { width: auto; flex: 1; min-width: 0; padding-inline: 10px; gap: 8px; font-size: 13px; }
+  .hero-bottom { margin-top: 12px; }
+}

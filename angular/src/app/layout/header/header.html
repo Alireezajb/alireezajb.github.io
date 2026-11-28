@@ -1,15 +1,19 @@
 <a class="skip" href="#main">رفتن به محتوای اصلی</a>
 <header class="header" [class.is-scrolled]="scroll.isScrolled()" id="top">
   <div class="wrap nav">
-    <a class="brand" routerLink="/" aria-label="علیرضا جابری، صفحهٔ اصلی"
-      ><span class="brand-text"><span class="brand-name"
+    <a class="brand" routerLink="/" (click)="menuOpen.set(false)" aria-label="علیرضا جابری، صفحهٔ اصلی"
+      ><span class="brand-logo"><img src="assets/aj-logo.jpg" alt=""></span><span class="brand-text"><span class="brand-name"
         >علیرضا <strong>جابری</strong><span class="brand-dot" aria-hidden="true"></span></span><span class="brand-title">مهندس نرم‌افزار و توسعه‌دهندهٔ وب</span></span
     ></a>
-    <nav aria-label="ناوبری اصلی">
-      <a routerLink="/" fragment="work">نمونه‌کارها</a
-      ><a routerLink="/" fragment="about">درباره من</a
-      ><a routerLink="/" fragment="expertise">خدمات</a
-      ><a routerLink="/" fragment="experience">سوابق کاری</a>
+    <button class="menu-toggle" type="button" (click)="menuOpen.update(open => !open)" [attr.aria-expanded]="menuOpen()" aria-controls="main-nav" [attr.aria-label]="menuOpen() ? 'بستن منو' : 'باز کردن منو'"><i class="pi" [class.pi-bars]="!menuOpen()" [class.pi-times]="menuOpen()" aria-hidden="true"></i></button>
+    <nav id="main-nav" [class.is-open]="menuOpen()" aria-label="ناوبری اصلی" (click)="menuOpen.set(false)">
+      <a routerLink="/" fragment="home"><i class="pi pi-home" aria-hidden="true"></i>صفحه اصلی</a>
+      <a routerLink="/" fragment="about"><i class="pi pi-user" aria-hidden="true"></i>درباره من</a>
+      <a routerLink="/" fragment="expertise"><i class="pi pi-th-large" aria-hidden="true"></i>خدمات</a>
+      <a routerLink="/" fragment="work"><i class="pi pi-folder" aria-hidden="true"></i>نمونه‌کارها</a>
+      <a routerLink="/" fragment="experience"><i class="pi pi-briefcase" aria-hidden="true"></i>سوابق کاری</a>
+      <a class="mobile-contact" routerLink="/" fragment="contact"><i class="pi pi-envelope" aria-hidden="true"></i>تماس با من</a>
+      <a class="mobile-cta" routerLink="/" fragment="contact">گفت‌وگو کنیم <i class="pi pi-send" aria-hidden="true"></i></a>
     </nav>
     <a pButton [unstyled]="true" class="nav-contact" routerLink="/" fragment="contact"
       >گفت‌وگو کنیم

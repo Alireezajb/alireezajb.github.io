@@ -1,5 +1,5 @@
 import { ButtonDirective } from 'primeng/button';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ScrollService } from '../../core/scroll.service';
 
@@ -11,4 +11,5 @@ import { ScrollService } from '../../core/scroll.service';
 })
 export class Header {
   protected readonly scroll = inject(ScrollService);
+  protected readonly menuOpen = signal(false);
 }
